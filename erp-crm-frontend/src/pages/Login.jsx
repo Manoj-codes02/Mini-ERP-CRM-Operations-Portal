@@ -175,53 +175,69 @@ function Login() {
               type="button"
               onClick={() => fillDemoUser("admin", "admin123")}
               style={{
-                padding: "6px",
-                fontSize: "11px",
-                border: "1px solid #f60000",
+                padding: "8px 6px",
+                fontSize: "12px",
+                fontWeight: "600",
+                border: "1px solid #cbd5e1",
                 background: "white",
+                color: "#1e293b",
                 borderRadius: "4px",
+                textAlign: "center",
+                cursor: "pointer",
               }}
             >
-              🔑 Admin
+              Admin
             </button>
             <button
               type="button"
               onClick={() => fillDemoUser("sales", "sales123")}
               style={{
-                padding: "6px",
-                fontSize: "11px",
-                border: "1px solid #f60000",
+                padding: "8px 6px",
+                fontSize: "12px",
+                fontWeight: "600",
+                border: "1px solid #cbd5e1",
                 background: "white",
+                color: "#1e293b",
                 borderRadius: "4px",
+                textAlign: "center",
+                cursor: "pointer",
               }}
             >
-              🔑 Sales
+              Sales
             </button>
             <button
               type="button"
               onClick={() => fillDemoUser("warehouse", "warehouse123")}
               style={{
-                padding: "6px",
-                fontSize: "11px",
-                border: "1px solid #f60000",
+                padding: "8px 6px",
+                fontSize: "12px",
+                fontWeight: "600",
+                border: "1px solid #cbd5e1",
                 background: "white",
+                color: "#1e293b",
                 borderRadius: "4px",
+                textAlign: "center",
+                cursor: "pointer",
               }}
             >
-              🔑 Warehouse
+              Warehouse
             </button>
             <button
               type="button"
               onClick={() => fillDemoUser("accounts", "accounts123")}
               style={{
-                padding: "6px",
-                fontSize: "11px",
-                border: "1px solid #f60000",
+                padding: "8px 6px",
+                fontSize: "12px",
+                fontWeight: "600",
+                border: "1px solid #cbd5e1",
                 background: "white",
+                color: "#1e293b",
                 borderRadius: "4px",
+                textAlign: "center",
+                cursor: "pointer",
               }}
             >
-              🔑 Accounts
+              Accounts
             </button>
           </div>
         </div>

@@ -222,4 +222,8 @@ async function initializeDatabase() {
   }
 }
 
-initializeDatabase();
+if (require.main === module) {
+  initializeDatabase();
+}
+
+module.exports = { initializeDatabase };

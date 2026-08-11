@@ -3,6 +3,7 @@ const cors = require("cors");
 require("dotenv").config();
 
 const { testDatabase } = require("./db/database");
+const { initializeDatabase } = require("./db/init");
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -12,6 +13,7 @@ const PORT = process.env.PORT || 5000;
 // ============================================================
 
 const allowedOrigins = [
+  "https://mini-erp-crm-operations-portal-zeta.vercel.app",
   "https://mini-erp-crm-operations-portal-git-main-manoj-codes-02.vercel.app",
   "https://mini-erp-crm-operations-portal-h6hxvr9gg-manoj-codes-02.vercel.app",
   "https://mini-erp-crm-operations-portal-hd2balwn2-manoj-codes-02.vercel.app",
@@ -153,6 +155,7 @@ app.listen(PORT, async () => {
   try {
     await testDatabase();
     console.log("MySQL database connected successfully");
+    await initializeDatabase();
   } catch (error) {
     console.error("Database initialization failed:", error);
   }

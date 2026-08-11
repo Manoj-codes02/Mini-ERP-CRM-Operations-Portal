@@ -61,7 +61,7 @@ function Login() {
 
   return (
     <div className="login">
-      <div className="login-card" style={{ width: "420px" }}>
+      <div className="login-card" style={{ maxWidth: "420px", width: "100%", boxSizing: "border-box" }}>
         <h1>
           ERP<span>Flow</span>
         </h1>
@@ -69,13 +69,25 @@ function Login() {
 
         {sessionExpired && (
           <div
-            className="badge warning"
+            className="login-alert warning"
             style={{
               display: "block",
               textAlign: "center",
               marginBottom: "15px",
-              padding: "10px",
+              padding: "10px 14px",
               width: "100%",
+              minHeight: "auto",
+              boxSizing: "border-box",
+              overflowWrap: "break-word",
+              wordBreak: "normal",
+              whiteSpace: "normal",
+              lineHeight: "1.4",
+              fontSize: "12px",
+              fontWeight: "600",
+              borderRadius: "4px",
+              background: "#fef3c7",
+              color: "#92400e",
+              border: "1px solid #fde68a",
             }}
           >
             Session expired. Please log in again.
@@ -84,13 +96,25 @@ function Login() {
 
         {error && (
           <div
-            className="badge danger"
+            className="login-alert danger"
             style={{
               display: "block",
               textAlign: "center",
               marginBottom: "15px",
-              padding: "10px",
+              padding: "10px 14px",
               width: "100%",
+              minHeight: "auto",
+              boxSizing: "border-box",
+              overflowWrap: "break-word",
+              wordBreak: "normal",
+              whiteSpace: "normal",
+              lineHeight: "1.4",
+              fontSize: "12px",
+              fontWeight: "600",
+              borderRadius: "4px",
+              background: "#fee2e2",
+              color: "#991b1b",
+              border: "1px solid #fca5a5",
             }}
           >
             {error}

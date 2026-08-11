@@ -11,7 +11,7 @@ export async function request(endpoint, options = {}) {
   };
 
   if (token) {
-    headers["Authorization"] = `Bearer ${token}`;
+    headers.Authorization = `Bearer ${token}`;
   }
 
   const config = {
@@ -30,7 +30,15 @@ export async function request(endpoint, options = {}) {
       }
     }
 
-    const data = await response.json();
+    let data;
+
+    try {
+      data = await response.json();
+    } catch {
+      data = {
+        message: `Server returned ${response.status}`,
+      };
+    }
 
     if (!response.ok) {
       throw new Error(data.message || "Something went wrong.");
@@ -48,7 +56,10 @@ export const api = {
     login: (username, password) =>
       request("/auth/login", {
         method: "POST",
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({
+          username,
+          password,
+        }),
       }),
 
     me: () => request("/auth/me"),

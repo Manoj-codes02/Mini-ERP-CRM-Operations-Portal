@@ -1,0 +1,493 @@
+/* =========================================================
+   INDIA.GOV.IN INPIRED ENTERPRISE PORTAL STYLESHEET
+   - Flat, high-contrast, clean UI
+   - Navy (#0f172a), Deep Red (#d9252a / #dc2626) accents
+   - Zero 3D elements / Zero floating blobs
+========================================================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background: #f1f5f9;
+  color: #1e293b;
+  line-height: 1.5;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+/* =========================
+   LOGIN PAGE
+========================= */
+
+.login {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  width: 420px;
+  background: #ffffff;
+  padding: 35px;
+  border-radius: 8px;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-card h1 {
+  text-align: center;
+  color: #0f172a;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.login-card h1 span {
+  color: #d9252a;
+}
+
+.login-subtitle {
+  text-align: center;
+  color: #64748b;
+  font-size: 13px;
+  margin-top: 6px;
+  margin-bottom: 25px;
+}
+
+.login-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-card label {
+  font-size: 12px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #334155;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.login-card input {
+  padding: 10px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  outline: none;
+  margin-bottom: 16px;
+  font-size: 14px;
+}
+
+.login-card input:focus {
+  border-color: #d9252a;
+  box-shadow: 0 0 0 2px rgba(217, 37, 42, 0.15);
+}
+
+.login-card button {
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background: #d9252a;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.login-card button:hover {
+  background: #b91c1c;
+}
+
+.demo-login {
+  margin-top: 20px;
+  padding: 14px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.demo-login strong {
+  font-size: 12px;
+  color: #0f172a;
+}
+
+.demo-login p {
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 4px;
+}
+
+/* =========================
+   APPLICATION LAYOUT
+========================= */
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  background: #f1f5f9;
+}
+
+/* =========================
+   TOP NAVBAR (GOVERNMENT PORTAL STYLE)
+========================= */
+
+.navbar {
+  background: #ffffff;
+  border-bottom: 3px solid #d9252a;
+  padding: 12px 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.portal-title {
+  font-size: 20px;
+  font-weight: 800;
+  color: #0f172a;
+  letter-spacing: -0.3px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.portal-tag {
+  background: #d9252a;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.portal-sub {
+  color: #64748b;
+  font-size: 12px;
+}
+
+.navbar-search {
+  display: flex;
+  align-items: center;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.navbar-search input {
+  padding: 8px 14px;
+  border: none;
+  outline: none;
+  font-size: 13px;
+  width: 250px;
+  background: transparent;
+}
+
+.navbar-search select {
+  padding: 8px 10px;
+  border: none;
+  border-left: 1px solid #cbd5e1;
+  background: #f1f5f9;
+  font-size: 12px;
+  outline: none;
+  color: #334155;
+}
+
+.navbar-search button {
+  background: #d9252a;
+  color: #ffffff;
+  border: none;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.navbar-search button:hover {
+  background: #b91c1c;
+}
+
+.user-badge {
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  padding: 6px 14px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* =========================
+   SIDEBAR (FLAT HIGH-CONTRAST NAVY)
+========================= */
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 240px;
+  height: 100vh;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 20px 15px;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-logo {
+  font-size: 20px;
+  font-weight: 800;
+  color: #ffffff;
+  padding: 10px;
+  border-bottom: 2px solid #d9252a;
+  margin-bottom: 20px;
+  letter-spacing: -0.5px;
+}
+
+.sidebar-logo span {
+  color: #d9252a;
+}
+
+.menu-title {
+  color: #94a3b8;
+  font-size: 11px;
+  font-weight: 700;
+  padding-left: 10px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sidebar a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #cbd5e1;
+  padding: 11px 14px;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.15s ease;
+}
+
+.sidebar a:hover {
+  background: #1e293b;
+  color: #ffffff;
+}
+
+.sidebar a.active {
+  background: #d9252a;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.logout-btn {
+  margin-top: auto;
+  padding: 12px;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  background: #1e293b;
+  color: #cbd5e1;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.logout-btn:hover {
+  background: #d9252a;
+  color: #ffffff;
+  border-color: #d9252a;
+}
+
+/* =========================
+   MAIN CONTENT AREA
+========================= */
+
+.main {
+  margin-left: 240px;
+  width: calc(100% - 240px);
+  min-height: 100vh;
+}
+
+.content {
+  padding: 25px 30px;
+}
+
+/* =========================
+   HEADER & METRIC CARDS (PORTAL BANNER STYLE)
+========================= */
+
+.hero-banner {
+  background: #0f172a;
+  color: #ffffff;
+  padding: 25px 30px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border-bottom: 4px solid #d9252a;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  border-top: 3px solid #d9252a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+/* =========================
+   PANELS & TABLES
+========================= */
+
+.panel {
+  background: #ffffff;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  overflow: hidden;
+  margin-bottom: 25px;
+}
+
+.page-header {
+  padding: 18px 25px;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+}
+
+.page-header h2 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+.page-header p {
+  font-size: 12px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+th {
+  background: #f8fafc;
+  color: #334155;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 12px 18px;
+  border-bottom: 2px solid #e2e8f0;
+}
+
+td {
+  padding: 12px 18px;
+  border-bottom: 1px solid #e2e8f0;
+  font-size: 13px;
+  color: #1e293b;
+}
+
+tr:hover {
+  background: #f8fafc;
+}
+
+/* =========================
+   BUTTONS & BADGES
+========================= */
+
+button.primary {
+  background: #d9252a;
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 13px;
+}
+
+button.primary:hover {
+  background: #b91c1c;
+}
+
+.badge {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 3px;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.badge.success {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.badge.warning {
+  background: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.badge.danger {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #fca5a5;
+}
+
+.badge.secondary {
+  background: #f1f5f9;
+  color: #475569;
+  border: 1px solid #cbd5e1;
+}

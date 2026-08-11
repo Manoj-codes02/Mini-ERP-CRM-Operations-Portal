@@ -1,0 +1,22 @@
+# Database runtime directory
+mysql-data/
+*.ibd
+*.sdi
+
+# Dependency directories
+node_modules/
+**/node_modules/
+
+# Environment files
+.env
+**/.env
+
+# Build outputs
+dist/
+build/
+**/dist/
+
+# OS / Temporary files
+.DS_Store
+Thumbs.db
+*.log

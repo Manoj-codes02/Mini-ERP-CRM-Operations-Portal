@@ -6,9 +6,10 @@ A complete, full-stack enterprise resource planning (ERP) and customer relations
 
 ## 📌 Submission Overview & Links
 
-* **GitHub Repository:** `https://github.com/your-username/mini-erp-crm-portal`
-* **Live Frontend Application:** `https://mini-erp-crm-portal.vercel.app`
-* **Live Backend REST API:** `https://mini-erp-crm-backend.onrender.com`
+* **GitHub Repository:** `https://github.com/Manoj-codes02/Mini-ERP-CRM-Operations-Portal`
+* **Live Frontend Application:** `https://mini-erp-crm-operations-portal-git-main-manoj-codes-02.vercel.app`
+* **Live Backend REST API:** `https://mini-erp-crm-operations-portal-i12u.onrender.com`
+* **Backend Health Check:** `https://mini-erp-crm-operations-portal-i12u.onrender.com/api/health`
 * **Postman Collection:** `Postman_Collection.json` (located in project root)
 
 ---

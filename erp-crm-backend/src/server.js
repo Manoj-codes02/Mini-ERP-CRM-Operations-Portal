@@ -8,20 +8,56 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ============================================================
-// CORS
+// CORS CONFIGURATION
 // ============================================================
 
-// Reflect the requesting origin.
-// This supports localhost, Vercel production, Vercel previews, etc.
-app.use(
-  cors({
-    origin: true,
-    credentials: false,
-    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
-    optionsSuccessStatus: 204,
-  }),
-);
+const allowedOrigins = [
+  "https://mini-erp-crm-operations-portal-git-main-manoj-codes-02.vercel.app",
+  "https://mini-erp-crm-operations-portal-h6hxvr9gg-manoj-codes-02.vercel.app",
+  "https://mini-erp-crm-operations-portal-hd2balwn2-manoj-codes-02.vercel.app",
+  "https://mini-erp-crm-operations-portal-manoj-codes-02.vercel.app",
+  "https://mini-erp-crm-portal.vercel.app",
+];
+
+const corsOptions = {
+  origin: function (origin, callback) {
+    // Allow requests with no origin (like Postman, mobile apps, or server-to-server requests)
+    if (!origin) {
+      return callback(null, true);
+    }
+
+    // Allow localhost/127.0.0.1 development origins (any port)
+    if (/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
+      return callback(null, true);
+    }
+
+    // Check explicit allowed origins list
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
+    }
+
+    // Check Vercel production and preview subdomains (allows hyphens in git branch names like -git-main-)
+    const vercelRegex = /^https:\/\/mini-erp-crm-operations-portal(-[a-z0-9-]+)?-manoj-codes(-02|02)?\.vercel\.app$/;
+    if (vercelRegex.test(origin)) {
+      return callback(null, true);
+    }
+
+    // Check generic Vercel deployment preview pattern for this project
+    const projectVercelRegex = /^https:\/\/mini-erp-crm-operations-portal(-[a-z0-9-]+)?\.vercel\.app$/;
+    if (projectVercelRegex.test(origin)) {
+      return callback(null, true);
+    }
+
+    console.log("CORS blocked origin:", origin);
+    return callback(new Error("Not allowed by CORS"));
+  },
+  credentials: false,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"],
+  optionsSuccessStatus: 204,
+};
+
+app.use(cors(corsOptions));
 
 // ============================================================
 // MIDDLEWARE

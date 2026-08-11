@@ -8,42 +8,25 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // ============================================================
-// CORS CONFIGURATION
+// CORS
 // ============================================================
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "http://localhost:3000",
-  "https://mini-erp-crm-operations-portal-h6hxvr9gg-manoj-codes-02.vercel.app",
-];
+// Reflect the requesting origin.
+// This supports localhost, Vercel production, Vercel previews, etc.
+app.use(
+  cors({
+    origin: true,
+    credentials: false,
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+    allowedHeaders: ["Content-Type", "Authorization"],
+    optionsSuccessStatus: 204,
+  }),
+);
 
-const corsOptions = {
-  origin: function (origin, callback) {
-    // Allow requests without an origin
-    // (Postman, server-to-server requests, etc.)
-    if (!origin) {
-      return callback(null, true);
-    }
+// ============================================================
+// MIDDLEWARE
+// ============================================================
 
-    if (allowedOrigins.includes(origin)) {
-      return callback(null, true);
-    }
-
-    console.log("Blocked CORS origin:", origin);
-    return callback(new Error("Not allowed by CORS"));
-  },
-
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-
-  allowedHeaders: ["Content-Type", "Authorization"],
-
-  optionsSuccessStatus: 204,
-};
-
-// CORS MUST come before routes
-app.use(cors(corsOptions));
-
-// Handle JSON requests
 app.use(express.json());
 
 // ============================================================
@@ -57,7 +40,7 @@ const challanRoutes = require("./routes/challans");
 const dashboardRoutes = require("./routes/dashboard");
 
 // ============================================================
-// MOUNT ROUTES
+// ROUTES
 // ============================================================
 
 app.use("/api/auth", authRoutes);

@@ -21,46 +21,73 @@ const allowedOrigins = [
 
 const corsOptions = {
   origin: function (origin, callback) {
-    // Allow requests with no origin (like Postman, mobile apps, or server-to-server requests)
+    // Allow requests without an Origin header
+    // Postman, server-to-server, mobile apps, etc.
     if (!origin) {
       return callback(null, true);
     }
 
-    // Allow localhost/127.0.0.1 development origins (any port)
+    // Allow localhost development
     if (/^http:\/\/(localhost|127\.0\.0\.1)(:\d+)?$/.test(origin)) {
       return callback(null, true);
     }
 
-    // Check explicit allowed origins list
+    // Allow explicitly registered Vercel URLs
     if (allowedOrigins.includes(origin)) {
       return callback(null, true);
     }
 
-    // Check Vercel production and preview subdomains (allows hyphens in git branch names like -git-main-)
-    const vercelRegex = /^https:\/\/mini-erp-crm-operations-portal(-[a-z0-9-]+)?-manoj-codes(-02|02)?\.vercel\.app$/;
+    // Allow Vercel deployment URLs for this project
+    const vercelRegex =
+      /^https:\/\/mini-erp-crm-operations-portal(-[a-z0-9-]+)?-manoj-codes(-02|02)?\.vercel\.app$/;
+
     if (vercelRegex.test(origin)) {
       return callback(null, true);
     }
 
-    // Check generic Vercel deployment preview pattern for this project
-    const projectVercelRegex = /^https:\/\/mini-erp-crm-operations-portal(-[a-z0-9-]+)?\.vercel\.app$/;
+    // Generic project Vercel deployment pattern
+    const projectVercelRegex =
+      /^https:\/\/mini-erp-crm-operations-portal(-[a-z0-9-]+)?\.vercel\.app$/;
+
     if (projectVercelRegex.test(origin)) {
       return callback(null, true);
     }
 
     console.log("CORS blocked origin:", origin);
+
     return callback(new Error("Not allowed by CORS"));
   },
+
   credentials: false,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+
+  methods: [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS",
+  ],
+
+  allowedHeaders: [
+    "Content-Type",
+    "Authorization",
+  ],
+
   optionsSuccessStatus: 204,
 };
 
+// ============================================================
+// CORS MIDDLEWARE
+// ============================================================
+
 app.use(cors(corsOptions));
 
+// Explicitly handle ALL OPTIONS preflight requests
+app.options(/.*/, cors(corsOptions));
+
 // ============================================================
-// MIDDLEWARE
+// BODY PARSER
 // ============================================================
 
 app.use(express.json());
@@ -76,7 +103,7 @@ const challanRoutes = require("./routes/challans");
 const dashboardRoutes = require("./routes/dashboard");
 
 // ============================================================
-// ROUTES
+// API ROUTES
 // ============================================================
 
 app.use("/api/auth", authRoutes);
@@ -86,7 +113,7 @@ app.use("/api/challans", challanRoutes);
 app.use("/api/dashboard", dashboardRoutes);
 
 // ============================================================
-// HEALTH CHECKS
+// HEALTH CHECK
 // ============================================================
 
 app.get("/", (req, res) => {
@@ -125,6 +152,7 @@ app.listen(PORT, async () => {
 
   try {
     await testDatabase();
+    console.log("MySQL database connected successfully");
   } catch (error) {
     console.error("Database initialization failed:", error);
   }
